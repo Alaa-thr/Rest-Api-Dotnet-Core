@@ -20,7 +20,7 @@ namespace rest_api_dotnet_core
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();// call the startup.cs
                 });
     }
 }

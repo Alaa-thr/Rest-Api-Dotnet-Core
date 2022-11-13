@@ -2,10 +2,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using rest_api_dotnet_core.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +17,7 @@ namespace rest_api_dotnet_core
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)// configuration of out api
         {
             Configuration = configuration;
         }
@@ -26,6 +28,10 @@ namespace rest_api_dotnet_core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //add confguration of DB & send the options to DBContext in ApiDbContext
+            services.AddDbContext<ApiDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DBConnection"))
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,8 +45,8 @@ namespace rest_api_dotnet_core
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            //app.UseAuthentication();//use it all the time before the authorization
+            app.UseAuthorization();// UseAuthorization are midellwares
 
             app.UseEndpoints(endpoints =>
             {
