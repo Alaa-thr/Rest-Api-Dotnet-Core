@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rest_api_dotnet_core.Models;
 using System;
-//install Microsoft.EntityFrameworkCore
+//install Microsoft.EntityFrameworkCore, SQLServer, Tools
 
 namespace rest_api_dotnet_core.Data
 {
