@@ -29,7 +29,6 @@ namespace rest_api_dotnet_core.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Text")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -39,14 +38,14 @@ namespace rest_api_dotnet_core.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6d572d81-a649-4fc1-84ec-f43a9cdcbca1"),
-                            CreatedAt = new DateTime(2022, 11, 17, 14, 1, 42, 754, DateTimeKind.Local).AddTicks(5806),
+                            Id = new Guid("95a96afc-a1c1-4337-b0a7-a44d6a9f959d"),
+                            CreatedAt = new DateTime(2022, 11, 13, 23, 28, 39, 385, DateTimeKind.Local).AddTicks(878),
                             Text = "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page"
                         },
                         new
                         {
-                            Id = new Guid("8c562f81-0360-4ddf-8c95-0088d2e4dcef"),
-                            CreatedAt = new DateTime(2022, 11, 17, 14, 1, 42, 758, DateTimeKind.Local).AddTicks(6210),
+                            Id = new Guid("007772ce-ba6b-4071-b356-9503d92d166e"),
+                            CreatedAt = new DateTime(2022, 11, 13, 23, 28, 39, 388, DateTimeKind.Local).AddTicks(3518),
                             Text = "Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée"
                         });
                 });
